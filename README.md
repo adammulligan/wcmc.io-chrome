@@ -1,1 +1,1 @@
-# wcmc.io URL Shortener Extension for Google Chrome
+# wcmc.io extension for Google Chrome

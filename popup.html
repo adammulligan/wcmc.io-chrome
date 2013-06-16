@@ -2,69 +2,12 @@
 <html>
   <head>
     <title>wcmc.io URL Shortener Popup</title>
-    <style>
-      body {
-        width: 190px;
-        height: 85px;
-        margin: 0;
-        padding: 0;
-        font-family: Helvetica;
-      }
-
-      #url {
-        height: 50px;
-        background-color: #86b84d;
-        background-image: url(bg.png);
-        padding-top: 14px;
-        text-align: center;
-        box-sizing: border-box;
-        color: #fff;
-      }
-
-      #url a,
-      #url a:hover {
-        outline: none;
-        text-decoration: none;
-        color: #fff;
-      }
-
-      #actions button {
-        height: 35px;
-        margin: 0;
-        width: 95px;
-        background: #272728;
-        border: 0;
-        color: #fff;
-      }
-
-      #actions button:hover {
-        cursor: pointer;
-      }
-
-      #actions button:active {
-        background: #666;
-      }
-
-      #actions button:first-child {
-        border-right: 1px solid #fff;
-      }
-
-      .pull-left {
-        float: left;
-      }
-
-      .pull-right {
-        float: right;
-      }
-    </style>
-
-    <script src="jquery.js"></script>
-    <script src="underscore.js"></script>
-    <script src="popup.js"></script>
+    <link rel="stylesheet" href="assets/css/popup.css">
   </head>
+
   <body>
     <div id="url">
-      http://wcmc.io/<span class="shortcode"></span>
+      http://wcmc.io/<span id="shortcode"></span>
     </div>
     <div id="actions">
       <button id="copy-url" class="pull-left">Copy</button>
@@ -73,5 +16,7 @@
 
     <input type="text" id="sandbox" style="position: absolute; left:-9999999px" />
   </body>
+
+  <script src="popup.js"></script>
 </html>
 

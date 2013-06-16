@@ -11,43 +11,51 @@
       this.openUrlDetails = __bind(this.openUrlDetails, this);
       this.copyUrlToClipboard = __bind(this.copyUrlToClipboard, this);
       this.handleResponse = __bind(this.handleResponse, this);
-      $('#copy-url').click(this.copyUrlToClipboard);
-      $('#url-details').click(this.openUrlDetails);
+      document.getElementById('copy-url').onclick = this.copyUrlToClipboard;
+      document.getElementById('url-details').onclick = this.openUrlDetails;
       chrome.tabs.getSelected(null, function(tab) {
         return _this.shortenUrl(tab.url);
       });
     }
 
     UrlShortener.prototype.shortenUrl = function(url) {
-      return $.ajax({
-        type: "POST",
-        url: this.url,
-        data: {
-          url: url
-        },
-        success: this.handleResponse,
-        dataType: 'json'
-      });
+      var http, params,
+        _this = this;
+
+      http = new XMLHttpRequest();
+      params = "{\"url\": \"" + url + "\"}";
+      http.open("POST", this.url, true);
+      http.setRequestHeader("Content-type", "application/json");
+      http.setRequestHeader("Accept", "application/json, text/javascript, */*; q=0.01");
+      http.onreadystatechange = function() {
+        if (http.readyState === 4 && http.status === 201) {
+          return _this.handleResponse(http.responseText);
+        }
+      };
+      return http.send(params);
     };
 
     UrlShortener.prototype.handleResponse = function(data) {
+      data = JSON.parse(data);
       this.id = data["id"];
       this.short_name = data["short_name"];
       return this.renderShortUrl();
     };
 
     UrlShortener.prototype.renderShortUrl = function() {
-      return $('.shortcode').html(this.short_name);
+      return document.getElementById('shortcode').innerHTML = this.short_name;
     };
 
     UrlShortener.prototype.copyUrlToClipboard = function() {
-      var url;
+      var sandboxEl, url;
 
       if (this.short_name != null) {
         url = "" + this.url + "/" + this.short_name;
-        $('#sandbox').val(url).select();
+        sandboxEl = document.getElementById('sandbox');
+        sandboxEl.value = url;
+        sandboxEl.select();
         document.execCommand('copy');
-        return $('#sandbox').val('');
+        return sandboxEl.value = '';
       }
     };
 
@@ -63,8 +71,6 @@
 
   })();
 
-  $(document).ready(function() {
-    return new UrlShortener("http://wcmc.io");
-  });
+  new UrlShortener("http://wukumurl.unepwcmc-005.vm.brightbox.net");
 
 }).call(this);
