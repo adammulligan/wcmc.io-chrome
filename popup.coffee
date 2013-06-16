@@ -3,9 +3,6 @@ class UrlShortener
     document.getElementById('copy-url').onclick = @copyUrlToClipboard
     document.getElementById('url-details').onclick = @openUrlDetails
 
-    chrome.tabs.getSelected null, (tab) =>
-      @shortenUrl(tab.url)
-
   shortenUrl: (url) ->
     http = new XMLHttpRequest()
     params = "{\"url\": \"#{url}\"}"
@@ -47,4 +44,6 @@ class UrlShortener
     if @id?
       chrome.tabs.create(url: "#{@url}/short_urls/#{@id}")
 
-new UrlShortener("http://wukumurl.unepwcmc-005.vm.brightbox.net")
+shortener = new UrlShortener("http://wcmc.io")
+chrome.tabs.getSelected null, (tab) ->
+  shortener.shortenUrl(tab.url)

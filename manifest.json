@@ -13,6 +13,6 @@
   "permissions": [
     "clipboardWrite",
     "tabs",
-    "http://wukumurl.unepwcmc-005.vm.brightbox.net/"
+    "http://wcmc.io/"
   ]
 }
