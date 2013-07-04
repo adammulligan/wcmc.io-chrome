@@ -1,20 +1,23 @@
 body {
-  width: 190px;
-  height: 85px;
+  background: #e5e5e5;
+  width: 175px;
+  height: 65px;
   margin: 0;
-  padding: 0;
+  padding: 10px;
   font-family: Helvetica;
 }
 
 #url {
-  height: 50px;
-  background-color: #86b84d;
-  background-image: url(../img/bg.png);
-  padding-top: 14px;
+  background: white;
+  color: #1a2c3f;
+  border-radius: 5px;
+  border: 1px solid #c2c2c2;
+  margin-bottom: 5px;
+  height: 32px;
+  padding-top: 4px;
+  font-size: 1.1em;
   text-align: center;
   box-sizing: border-box;
-  color: #fff;
-  font-size: 1.2em;
 }
 
 #url a,
@@ -25,24 +28,35 @@ body {
 }
 
 #actions button {
-  height: 35px;
+  text-transform: uppercase;
+  height: 28px;
+  font-size: 14px;
   margin: 0;
-  width: 95px;
-  background: #272728;
-  border: 0;
   color: #fff;
+  border: 1px solid #93c114;
+  background-color: #b6d739;
+}
+
+#copy-url {
+  width: 70px;
+  margin-right: 5px;
+  border-radius: 5px;
+}
+
+#url-details {
+  width: 100px;
+  border-radius: 5px;
 }
 
 #actions button:hover {
   cursor: pointer;
+  border: 1px solid #b6d739;
+  background-color: #93c114;
 }
 
 #actions button:active {
-  background: #666;
-}
-
-#actions button:first-child {
-  border-right: 1px solid #fff;
+  border: 1px solid #93c114;
+  background-color: #b6d739;
 }
 
 .pull-left {
