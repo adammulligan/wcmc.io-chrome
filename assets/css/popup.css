@@ -1,9 +1,9 @@
 body {
   background: #e5e5e5;
   width: 175px;
-  height: 65px;
+  height: 53px;
   margin: 0;
-  padding: 10px;
+  padding: 7px;
   font-family: Helvetica;
 }
 
@@ -13,9 +13,9 @@ body {
   border-radius: 5px;
   border: 1px solid #c2c2c2;
   margin-bottom: 5px;
-  height: 32px;
-  padding-top: 4px;
-  font-size: 1.1em;
+  height: 25px;
+  padding-top: 1px;
+  font-size: 1.05em;
   text-align: center;
   box-sizing: border-box;
 }
@@ -29,12 +29,13 @@ body {
 
 #actions button {
   text-transform: uppercase;
-  height: 28px;
-  font-size: 14px;
+  height: 23px;
+  font-size: 12px;
   margin: 0;
   color: #fff;
   border: 1px solid #93c114;
   background-color: #b6d739;
+  outline: none;
 }
 
 #copy-url {
